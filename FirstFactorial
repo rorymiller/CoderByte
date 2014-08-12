@@ -1,0 +1,7 @@
+def FirstFactorial(num): 
+  answer = 1
+  factor = list(range(1, (num+1)))
+  
+  for f in factor:
+    answer = answer * f
+  return answer
