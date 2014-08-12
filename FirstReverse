@@ -1,0 +1,5 @@
+def FirstReverse(str): 
+
+  # code goes here
+  answer = str[::-1]
+  return answer
