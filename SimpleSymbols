@@ -4,8 +4,8 @@ import re
 
 str = "+d+===+a+"
 
-right = re.findall("\+[A-Za-z]\+",str)
-wrong = re.findall("[A-Za-z]", str)
+#right = re.findall("\+[A-Za-z]\+",str)
+#wrong = re.findall("[A-Za-z]", str)
 
 if len(re.findall("\+[A-Za-z]\+",str)) == len(re.findall("[A-Za-z]", str)):
     print("true")
