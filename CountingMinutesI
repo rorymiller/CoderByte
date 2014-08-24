@@ -1,0 +1,62 @@
+def CountingMinutesI(str):
+    # calculate minutes b/w the two times
+    # 12 hours clock format
+    # 9:00am-10:00am == 60
+
+    times = str.split("-")
+    #print(times)
+
+    # start and finsih
+    f = times[0][::-1]
+    s = times[1][::-1]
+    #print(f)
+    # split minutes and hours
+    fm = f[:4:][::-1]
+    fh = int(f[5:(len(f))][::-1])
+    sm = s[:4:][::-1]
+    sh = int(s[5:(len(s))][::-1])
+    #print(sh,sm,fh,fm)
+
+# adjust for 24 hours
+    if "pm" in sm and sh != 12:
+        sh += 12
+        sm =sm.replace("pm","")
+    if "pm" in fm and fh != 12:
+        fh += 12
+        fm = fm.replace("pm","")
+    if "pm" in fm and fh == 12:
+        fm = fm.replace("pm","")
+    if ("am" in sm and sh == 12):
+        sh = 0
+    if "am" in fm and fh == 12:
+        fh = 0
+    if "am" in sm or "am" in fm:
+        sm = sm.replace("am","")
+        fm = fm.replace("am","")
+   # print (sm,fm)
+    sm = int(sm)
+    fm = int(fm)
+
+    # adjust for next day
+    if "ma" in s and "ma" not in f:
+        print('+24')
+        sh += 24
+
+    if ((sh*60) + sm) < ((fh*60) + fm):
+        print('yes')
+        sh += 24
+
+
+  #  print(sh,sm,fh,fm)
+
+    # calculate difference
+    minu = sm-fm
+    hours = (sh-fh) * 60
+
+
+    answer = minu+hours
+    return answer
+
+
+
+CountingMinutesI("12:30pm-12:00am")
