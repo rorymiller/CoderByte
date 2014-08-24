@@ -1,0 +1,23 @@
+def MeanMode(array):
+    maxa = []
+    for a in array:
+        maxa.append(array.count(a))
+    maxa = sorted(maxa)[::-1]
+    mode = 0
+    #print(maxa)
+
+    for a in array:
+        if array.count(a) == maxa[0]:
+            mode = a
+
+    mean = 0
+    for a in array:
+        mean += a
+    #print(mean)
+    mean = mean / (len(array))
+    #print(mean)
+
+    if mean == mode:
+        return 1
+    else:
+        return 0
