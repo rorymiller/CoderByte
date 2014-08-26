@@ -1,0 +1,19 @@
+import urllib.request
+import pickle
+myurl="http://www.pythonchallenge.com/pc/def/banner.p"
+
+
+
+#read the url and de-serialise it
+handle= urllib.request.urlopen(myurl)
+
+object = pickle.load(handle)
+
+handle.close()
+print(object)
+
+for item in object:
+    print("".join(i[0] * i[1] for i in item)) #print characters
+    
+    
+#channel
